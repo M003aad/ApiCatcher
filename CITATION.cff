@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "ApiCatcher"
+authors:
+  - family-names: "M003aad"
+    given-names: ""
+    email: "188705139+M003aad@users.noreply.github.com"
+version: "1.0.0"
+date-released: "2026-10-26"
+url: "https://github.com/M003aad/ApiCatcher.git"
+repository-code: "https://github.com/M003aad/ApiCatcher.git"
+license: "AGPL-3.0-only"
+description: "A Chrome extension for inspecting JSON Fetch and XMLHttpRequest responses and cookies directly in the active page."

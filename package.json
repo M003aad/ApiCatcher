@@ -1,0 +1,18 @@
+{
+  "name": "apicatcher",
+  "version": "1.0.0",
+  "description": "Inspect JSON responses and cookies directly in the current webpage.",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --check .",
+    "validate": "node -e \"const fs = require('fs'); JSON.parse(fs.readFileSync('manifest.json', 'utf8')); console.log('manifest ok');\" && node --check background.js && node --check content.js && node --check interceptor.js",
+    "build": "node -e \"const fs = require('fs'); const path = require('path'); const out = 'dist'; fs.rmSync(out, { recursive: true, force: true }); fs.mkdirSync(out, { recursive: true }); ['background.js','content.css','content.js','interceptor.js','manifest.json'].forEach((file) => fs.copyFileSync(file, path.join(out, file))); fs.cpSync('icons', path.join(out, 'icons'), { recursive: true }); console.log('extension bundle prepared in dist');\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.0.0"
+  }
+}

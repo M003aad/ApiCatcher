@@ -1,0 +1,414 @@
+#apicatcher-root {
+  all: initial;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2147483647;
+  right: 20px;
+  bottom: 20px;
+  width: min(520px, calc(100vw - 40px));
+  max-height: min(650px, calc(100vh - 40px));
+  overflow: hidden;
+  color: #d4d4d4;
+  background: #181a1f;
+  border: 1px solid #343842;
+  border-radius: 10px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#apicatcher-root *,
+#apicatcher-root *::before,
+#apicatcher-root *::after {
+  box-sizing: border-box;
+}
+
+#apicatcher-root[hidden],
+#apicatcher-root [hidden] {
+  display: none;
+}
+
+.apicatcher-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0 10px 0 14px;
+  color: #f1f1f1;
+  background: #22252c;
+  border-bottom: 1px solid #343842;
+  cursor: move;
+  user-select: none;
+}
+
+.apicatcher-title,
+.apicatcher-actions,
+.apicatcher-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apicatcher-title {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.apicatcher-logo {
+  color: #61dafb;
+  font-family: Consolas, "Fira Code", monospace;
+  font-weight: 700;
+}
+
+.apicatcher-count,
+.apicatcher-tab span {
+  min-width: 20px;
+  padding: 1px 6px;
+  color: #aeb6c6;
+  background: #303541;
+  border-radius: 10px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.apicatcher-icon-button,
+.apicatcher-tool-button,
+.apicatcher-copy {
+  border: 0;
+  color: #aeb6c6;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.apicatcher-icon-button {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.apicatcher-icon-button:hover,
+.apicatcher-tool-button:hover,
+.apicatcher-copy:hover {
+  color: #fff;
+}
+
+.apicatcher-mini-button {
+  display: none;
+  padding: 9px 12px;
+  border: 0;
+  color: #d4d4d4;
+  background: #22252c;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.apicatcher-mini-button:hover {
+  color: #61dafb;
+}
+
+.apicatcher-tabs {
+  display: flex;
+  background: #1e2127;
+  border-bottom: 1px solid #343842;
+}
+
+.apicatcher-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: #8b93a3;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.apicatcher-tab:hover,
+.apicatcher-tab.is-active {
+  color: #f1f1f1;
+}
+
+.apicatcher-tab.is-active {
+  border-bottom-color: #61dafb;
+}
+
+.apicatcher-body {
+  max-height: 575px;
+  overflow-y: auto;
+}
+
+.apicatcher-view-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0 12px;
+  color: #8b93a3;
+  font-size: 11px;
+  border-bottom: 1px solid #2b2e36;
+}
+
+.apicatcher-tool-button {
+  padding: 4px 7px;
+  color: #61dafb;
+  border: 1px solid #37404c;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.apicatcher-icon-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  padding: 4px;
+}
+
+.apicatcher-action-icon {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.apicatcher-button-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.apicatcher-empty,
+.apicatcher-cookie-state {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 42px 20px;
+  color: #8b93a3;
+  text-align: center;
+}
+
+.apicatcher-empty strong {
+  color: #c7ccd6;
+  font-size: 14px;
+}
+
+.apicatcher-request {
+  border-bottom: 1px solid #2b2e36;
+}
+
+.apicatcher-request-toggle {
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr) 34px 12px;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 0;
+  color: #d4d4d4;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.apicatcher-request-toggle:hover,
+.apicatcher-request.is-expanded .apicatcher-request-toggle {
+  background: #252932;
+}
+
+.apicatcher-method,
+.apicatcher-status {
+  font-family: Consolas, "Fira Code", monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.apicatcher-method { color: #61dafb; }
+.apicatcher-method-post { color: #dcb67a; }
+.apicatcher-method-delete { color: #f07178; }
+.apicatcher-method-put,
+.apicatcher-method-patch { color: #c792ea; }
+
+.apicatcher-url {
+  overflow: hidden;
+  color: #c5cbd8;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.apicatcher-status {
+  color: #8b93a3;
+  text-align: right;
+}
+
+.apicatcher-status.is-success { color: #98c379; }
+.apicatcher-status.is-error { color: #e06c75; }
+
+.apicatcher-chevron {
+  color: #7f8796;
+  font-size: 20px;
+  line-height: 12px;
+  transition: transform 120ms ease;
+}
+
+.is-expanded .apicatcher-chevron {
+  transform: rotate(90deg);
+}
+
+.apicatcher-details {
+  padding: 0 12px 12px;
+  background: #15171c;
+}
+
+.apicatcher-detail-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 7px 0;
+}
+
+.apicatcher-copy {
+  padding: 3px 7px;
+  color: #61dafb;
+  border: 1px solid #37404c;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.apicatcher-item-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 26px;
+  text-align: center;
+}
+
+.apicatcher-json {
+  max-height: 300px;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  color: #c5e1a5;
+  background: #101216;
+  border: 1px solid #292e38;
+  border-radius: 5px;
+  font-family: Consolas, "Fira Code", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.apicatcher-cookie-table-wrap {
+  overflow-x: auto;
+}
+
+.apicatcher-cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Consolas, "Fira Code", monospace;
+  font-size: 11px;
+  table-layout: fixed;
+}
+
+.apicatcher-cookie-table th,
+.apicatcher-cookie-table td {
+  max-width: 150px;
+  padding: 8px 10px;
+  overflow: hidden;
+  border-bottom: 1px solid #2b2e36;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.apicatcher-cookie-table th {
+  color: #8b93a3;
+  font-weight: 500;
+}
+
+.apicatcher-cookie-table td {
+  color: #c5cbd8;
+}
+
+.apicatcher-cookie-table td:first-child {
+  color: #61dafb;
+}
+
+.apicatcher-cookie-row {
+  cursor: pointer;
+}
+
+.apicatcher-cookie-row:hover,
+.apicatcher-cookie-row.is-expanded {
+  background: #252932;
+}
+
+.apicatcher-cookie-details-row td {
+  padding: 0 10px 10px;
+  background: #15171c;
+}
+
+.apicatcher-cookie-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.apicatcher-cookie-tag {
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 9px;
+}
+
+.apicatcher-cookie-tag.is-secure {
+  color: #98c379;
+  background: #263b2d;
+}
+
+.apicatcher-cookie-tag.is-http-only {
+  color: #dcb67a;
+  background: #443625;
+}
+
+.apicatcher-delete {
+  padding: 3px 7px;
+  border: 1px solid #6b3138;
+  border-radius: 4px;
+  color: #f07178;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+}
+
+.apicatcher-delete:hover {
+  color: #fff;
+  background: #6b3138;
+}
+
+.is-minimized {
+  width: auto !important;
+  border-radius: 7px;
+}
+
+.is-minimized .apicatcher-header {
+  display: none;
+}
+
+.is-minimized .apicatcher-body,
+.is-minimized .apicatcher-tabs {
+  display: none;
+}
+
+.is-minimized .apicatcher-mini-button {
+  display: block;
+}
